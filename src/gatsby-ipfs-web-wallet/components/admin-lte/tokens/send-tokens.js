@@ -35,6 +35,7 @@ class SendTokens extends React.Component {
       postOffice: false,
       postOfficeUrl: false,
       merchantData: false,
+      postOfficeMsg: '',
     }
     _this.BchWallet = BchWallet
   }
@@ -107,15 +108,19 @@ class SendTokens extends React.Component {
                       labelPosition='above'
                       onChange={_this.handleUpdate}
                     />
-                    {_this.state.postageRate && <label className='switch-address' style={{ margin: '0 auto', display: 'block'}}htmlFor='address-checkbox'>
-                        <p>{_this.state.postOffice ? 'Enable' : 'Disable'} Post Office</p><input
+                    {_this.state.postageRate && 
+                    <div style={{ marginBottom: '10px' }}>
+                    <p>Post Office <strong>{_this.state.postOffice ? 'Enabled' : 'Disabled'}</strong></p>
+                    <label className='switch-address' style={{ margin: '0 auto', display: 'block'}}htmlFor='address-checkbox'>
+                        <input
                           id='address-checkbox'
                           type='checkbox'
                           
                           onChange={() => _this.setState({ postOffice: !_this.state.postOffice })}
                         />
                         <span className='slider round' />
-                      </label>}
+                      </label>
+                    </div>}
                     <Button
                       text='Close'
                       type='primary'
@@ -151,8 +156,8 @@ class SendTokens extends React.Component {
                       Selected Token : <b>{name}</b>
                     </span>
                   )}
-                  {_this.state.postOffice && <p>Post Office Enabled!</p>}
-                  {_this.state.postageRate && _this.state.postOffice && <p>Rate: {(new BigNumber(_this.state.postageRate.rate) / Math.pow(10, _this.state.postageRate.decimals)).toFixed(_this.state.postageRate.decimals)} {_this.state.postageRate.symbol}</p>}
+                  {_this.state.postageRate && _this.state.postOffice && <p>Fee: {(new BigNumber(_this.state.postageRate.rate) / Math.pow(10, _this.state.postageRate.decimals) * 4).toFixed(_this.state.postageRate.decimals)} {_this.state.postageRate.symbol}</p>}
+                  <p><strong>{_this.state.postOfficeMsg}</strong></p> 
                 </Col>
               </Row>
             </Box>
@@ -238,7 +243,6 @@ class SendTokens extends React.Component {
 
   async sendThroughPostOffice(amount, outputAddress) {
     try {
-        //const minimalBCHWallet = await new MinimalBCHWallet(walletInfo.mnemonic);
         console.log('Creating custom transaction...')
         console.log(_this.props.selectedToken.tokenId);
         const walletInfo = _this.props.bchWallet.walletInfo
@@ -324,9 +328,7 @@ class SendTokens extends React.Component {
       )
 
      console.log(`Response Data: `, response);
-     let transactions = await _this.props.bchWallet.bchjs.Electrumx.transactions(walletInfo.address);
-     console.log('transactions', transactions)
-    
+     _this.setState({ postOfficeMsg: 'Transaction broadcasted!' })
     } catch (e) {
         console.error(`Error from FullStack.cash api`, e);
     }
