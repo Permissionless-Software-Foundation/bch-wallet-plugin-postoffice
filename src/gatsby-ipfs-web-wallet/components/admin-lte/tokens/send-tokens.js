@@ -1,5 +1,10 @@
 /* eslint no-unused-vars: 0 */
 
+/*
+  This file uses Component Shadowing to overwrite the default Send Tokens View
+  in gatsby-ipfs-web-wallet with this Post Office enabled View.
+*/
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col, Box, Inputs, Button } from 'adminlte-2-react'

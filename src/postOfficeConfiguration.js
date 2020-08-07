@@ -1,5 +1,9 @@
 /* eslint no-unused-vars: 0 */
 
+/*
+  Injects a new UI into the Configure View of the web wallet.
+*/
+
 import React, { useState, useEffect } from 'react'
 import {
   Content,
@@ -16,6 +20,7 @@ const { Text, Select } = Inputs
 export default () => {
   const [postOfficeUrl, setPostOfficeUrl] = useState()
 
+  // Get the wallet information from LocalStorage
   const updatePostOfficeUrl = () => {
     const walletInfo = JSON.parse(
       window.localStorage.getItem('fullstack-wallet-info')
@@ -27,6 +32,7 @@ export default () => {
     )
   }
 
+  // Set the URL for the current Post Office server.
   const getPostOfficeUrl = () => {
     const walletInfo = JSON.parse(
       window.localStorage.getItem('fullstack-wallet-info')
