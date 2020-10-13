@@ -1,7 +1,7 @@
 {
   "name": "bch-wallet-plugin-postoffice",
   "description": "Post Office Plugin for gatsby-ipfs-web-wallet.",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "main": "index.js",
   "author": "Andre Cabrera <andrecabrera@protonmail.ch>",
   "license": "MIT",
