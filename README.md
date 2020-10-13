@@ -5,3 +5,6 @@ bch-wallet-starter Gatsby starter. Plugins created with this boilerplate
 leverage the gatsby-ipfs-web-wallet Theme as an npm peer-dependency.
 
 More information pending.
+
+## License
+MIT

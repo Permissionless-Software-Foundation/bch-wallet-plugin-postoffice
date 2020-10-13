@@ -48,32 +48,32 @@ export default () => {
   }, [])
 
   return (
-    <Box className="hover-shadow border-none mt-2">
+    <Box className='hover-shadow border-none mt-2'>
       <Row>
-        <Col sm={12} className="text-center">
+        <Col sm={12} className='text-center'>
           <h1>
-            <FontAwesomeIcon className="title-icon" size="xs" icon="message" />
+            <FontAwesomeIcon className='title-icon' size='xs' icon='message' />
             <span>Post Office</span>
           </h1>
-          <Box className="border-none">
+          <Box className='border-none'>
             <Text
-              id="postOffice"
-              name="postOffice"
-              placeholder="Enter a Post Office Url"
-              label="Post Office Url"
-              labelPosition="above"
+              id='postOffice'
+              name='postOffice'
+              placeholder='Enter a Post Office Url'
+              label='Post Office Url'
+              labelPosition='above'
               value={postOfficeUrl}
               onChange={e => setPostOfficeUrl(e.target.value)}
             />
             <Button
-              text="Update"
-              type="primary"
-              className="btn-lg"
+              text='Update'
+              type='primary'
+              className='btn-lg'
               onClick={() => updatePostOfficeUrl()}
             />
           </Box>
         </Col>
-        <Col sm={12} className="text-center">
+        <Col sm={12} className='text-center'>
           {/* {_this.state.errMsg && (
         <p className='error-color'>{_this.state.errMsg}</p>
         )} */}

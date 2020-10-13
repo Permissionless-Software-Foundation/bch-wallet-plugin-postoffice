@@ -85,38 +85,38 @@ class SendTokens extends React.Component {
       <>
         <Row>
           <Col sm={12}>
-            <Box className=" border-none mt-2" loaded={!this.state.inFetch}>
+            <Box className=' border-none mt-2' loaded={!this.state.inFetch}>
               <Row>
-                <Col sm={12} className="text-center">
-                  <h1 id="SendTokens">
+                <Col sm={12} className='text-center'>
+                  <h1 id='SendTokens'>
                     <FontAwesomeIcon
-                      className="title-icon"
-                      size="xs"
-                      icon="paper-plane"
+                      className='title-icon'
+                      size='xs'
+                      icon='paper-plane'
                     />
                     <span>Send</span>
                   </h1>
 
-                  <Box className="border-none">
+                  <Box className='border-none'>
                     <Text
-                      id="addressToSend"
-                      name="address"
-                      placeholder="Enter simpleledger address to send"
-                      label="SLP Address"
-                      labelPosition="above"
+                      id='addressToSend'
+                      name='address'
+                      placeholder='Enter simpleledger address to send'
+                      label='SLP Address'
+                      labelPosition='above'
                       onChange={_this.handleUpdate}
-                      className="title-icon"
+                      className='title-icon'
                       buttonRight={
-                        <Button icon="fa-qrcode" onClick={_this.handleModal} />
+                        <Button icon='fa-qrcode' onClick={_this.handleModal} />
                       }
                     />
 
                     <Text
-                      id="amountToSend"
-                      name="amountSat"
-                      placeholder="Enter amount to send"
-                      label="Amount"
-                      labelPosition="above"
+                      id='amountToSend'
+                      name='amountSat'
+                      placeholder='Enter amount to send'
+                      label='Amount'
+                      labelPosition='above'
                       onChange={_this.handleUpdate}
                     />
                     {_this.state.postageRate && (
@@ -128,47 +128,46 @@ class SendTokens extends React.Component {
                           </strong>
                         </p>
                         <label
-                          className="switch-address"
+                          className='switch-address'
                           style={{ margin: '0 auto', display: 'block' }}
-                          htmlFor="address-checkbox"
+                          htmlFor='address-checkbox'
                         >
                           <input
-                            id="address-checkbox"
-                            type="checkbox"
+                            id='address-checkbox'
+                            type='checkbox'
                             onChange={() =>
                               _this.setState({
                                 postOffice: !_this.state.postOffice
-                              })
-                            }
+                              })}
                           />
-                          <span className="slider round" />
+                          <span className='slider round' />
                         </label>
                       </div>
                     )}
                     <Button
-                      text="Close"
-                      type="primary"
-                      className="btn-lg mr-2"
+                      text='Close'
+                      type='primary'
+                      className='btn-lg mr-2'
                       onClick={_this.props.handleBack}
                     />
                     <Button
-                      text="Send"
-                      type="primary"
-                      className="btn-lg "
+                      text='Send'
+                      type='primary'
+                      className='btn-lg '
                       onClick={_this.handleSend}
                     />
                   </Box>
                 </Col>
-                <Col sm={12} className="text-center">
+                <Col sm={12} className='text-center'>
                   {_this.state.errMsg && (
-                    <p className="error-color">{_this.state.errMsg}</p>
+                    <p className='error-color'>{_this.state.errMsg}</p>
                   )}
                   {_this.state.txId && (
-                    <p className="">
+                    <p className=''>
                       Transaction ID:
                       <a
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        target='_blank'
+                        rel='noopener noreferrer'
                         href={`https://explorer.bitcoin.com/bch/tx/${_this.state.txId}`}
                       >
                         {_this.state.txId}
@@ -522,9 +521,9 @@ class SendTokens extends React.Component {
             Rate limits exceeded, increase rate limits with a JWT token from
             <a
               style={{ marginLeft: '5px' }}
-              target="_blank"
-              href="https://fullstack.cash"
-              rel="noopener noreferrer"
+              target='_blank'
+              href='https://fullstack.cash'
+              rel='noopener noreferrer'
             >
               FullStack.cash
             </a>
