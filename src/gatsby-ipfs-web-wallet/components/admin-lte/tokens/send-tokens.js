@@ -382,7 +382,7 @@ class SendTokens extends React.Component {
         undefined,
         transactionBuilder.hashTypes.SIGHASH_ALL |
           transactionBuilder.hashTypes.SIGHASH_ANYONECANPAY,
-        slpInputUtxo.satoshis,
+        slpInputUtxo.value,
         transactionBuilder.signatureAlgorithms.ECDSA
       )
 
